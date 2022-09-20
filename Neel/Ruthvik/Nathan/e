@@ -1,0 +1,13 @@
+//imports
+ @Autonomous
+ Public class AutonomousPractice1 extends LinearOpMode();
+ {
+ private DcMotorleft1;
+ private DcMotorleft2;
+ private DcMotorright1;
+ private DcMotorright2;
+ }
+ Private final double countsPerRev=28.0;
+ Private final double driveGearReduction = 18.8803;
+ Private final double wheel_circumfrence = 188.4;
+ 
