@@ -1,0 +1,17 @@
+//imports
+ @Autonomous
+ Public class AutonomousPractice1 extends LinearOpMode();
+ {
+ Private DcMotorleft1;
+ Private DcMotorleft2;
+ Private DCMotorleft3;
+ Private DcMotorright1;
+ Private DcMotorright2;
+ Private DcMotorright3;
+ }
+ Private final double countsPerRev = 28.0; 
+ Private final double driveGearReduction = 18.8803;
+ Private final double wheel_circumference = 188.4;
+ motor.setMode(RUN_TO_POSITION);
+ motor.setTargetPosition(200)
+ motor.setPower(1);
