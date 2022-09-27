@@ -1,0 +1,88 @@
+package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
+@Autonomous
+public class AutonomousPractice1 extends LinearOpMode {
+  private DcMotor left1;
+  private DcMotor left2;
+  private DcMotor left3;
+  private DcMotor right1;
+  private DcMotor right2;
+  private DcMotor right3;
+  
+  private ColorSensor color1;
+  
+  private final double wheelCircumference = 90*3.14;
+  private final double gearReduction = 3.61*5.23;
+  private final double motorCounts = 28.0
+  
+  private final double countsPerWheelRev = motorCounts * gearReduction;
+  private final double RevPerMM = countsPerWheelRev / wheelCircumference;
+  
+  public void runOpMode(){
+    left1 = hardwareMap.get(DcMotor, "leftMotor1");
+    left2 = hardwareMap.get(DcMotor, "leftMotor2");
+    left3 = hardwareMap.get(DcMotor, "leftMotor3");
+    right1 = hardwareMap.get(DcMotor, "rightMotor1");
+    right2 = hardwareMap.get(DcMotor, "rightMotor2");
+    right3 = hardwareMap.get(DcMotor, "rightMotor3");
+    
+    int tgt = tickstoDistance(200);
+    
+    left1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    left2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    right1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    right2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    
+    left1.setTargetPosition(tgt);
+    right1.setTargetPosition(tgt);
+    right2.setTargetPosition(tgt);
+    right3.setTargetPosition(tgt);
+    left2.setTargetPosition(tgt);
+    left3.setTargerPosition(tgt);
+    
+    left1.setMode(1);
+    left2.setMode(1);
+    left3.setMode(1);
+    right1.setMode(1);
+    right2.setMode(1);
+    right3.setMode(1);;
+    
+    left1.setPower(1);
+    left2.setPower(1);
+    right3.setPower(1);
+    right1.setPower(1);
+    right2.setPower(1);
+    right3.serPower(1);
+    
+    while(opModeIsActive() && left1.isBusy() && left2.isBusy() && right1.isBusy() && right2.isBusy())
+    {
+      telemtry.addData("Position: ", "left1.getCurrentPosition());
+    }
+  }
+  //method formula to convert from motorCounts to MM
+  public int ticksToDistance(int distance){
+    return (int)distance*((gearReduction*motorCounts)/wheelCircumference);
+  }
+  
+  while(color1.red > 200 && color1.blue < 75 && color1.green < 75){
+    left1.setPower(1);
+    left2.setPower(1);
+    left3.setPower(1);
+    right1.setPower(1);
+    right2.setPower(1);
+    right3.setPower(1);
+  }
+  left1.setPower(0);
+  left2.setPower(0);
+  left3.setPower(0);
+  right1.setPower(0);
+  right2.setPower(0);
+  right3.setPower(0);
+  
+}
