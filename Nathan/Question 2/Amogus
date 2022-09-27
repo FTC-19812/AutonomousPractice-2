@@ -15,4 +15,8 @@
  motor.setMode(RUN_TO_POSITION);
  motor.setTargetPosition(200)
  motor.setPower(1);
- 
+ while(opModeIsActive() &&.isBusy(1);
+	{
+	    telemetry.oddData(motor.set(motor.getcurrentPosition(1);
+	    telemetry.update();
+}
